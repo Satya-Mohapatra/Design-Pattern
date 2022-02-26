@@ -3,10 +3,8 @@ package singleton;
 import java.io.*;
 
 /**
- * Singleton is initializing
-	false
-	222
-	111
+ * Singleton is initializing false 222 111
+ * 
  * @author satya
  *
  */
@@ -34,9 +32,9 @@ class BasicSingleton implements Serializable {
 	// required for correct serialization
 	// readResolve is used for _replacing_ the object read from the stream
 
-	/*
-	 * protected Object readResolve() { return INSTANCE; }
-	 */
+	/**protected Object readResolve() {
+		return INSTANCE;
+	}*/
 
 	// generated getter
 	public static BasicSingleton getInstance() {

@@ -43,22 +43,22 @@ class BasicSingleton implements Serializable {
 }
 
 public class BasicSingletonDemo {
-	static void saveToFile(BasicSingleton singleton, String filename) throws Exception {
+	static void saveToFile(StaticSingleton singleton, String filename) throws Exception {
 		try (FileOutputStream fileOut = new FileOutputStream(filename);
 				ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
 			out.writeObject(singleton);
 		}
 	}
 
-	static BasicSingleton readFromFile(String filename) throws Exception {
+	static StaticSingleton readFromFile(String filename) throws Exception {
 		try (FileInputStream fileIn = new FileInputStream(filename);
 				ObjectInputStream in = new ObjectInputStream(fileIn)) {
-			return (BasicSingleton) in.readObject();
+			return (StaticSingleton) in.readObject();
 		}
 	}
 
 	public static void main(String[] args) throws Exception {
-		BasicSingleton singleton = BasicSingleton.getInstance();
+		StaticSingleton singleton = StaticSingleton.getInstance();
 		singleton.setValue(111);
 
 		String filename = "singleton.bin";
@@ -66,7 +66,7 @@ public class BasicSingletonDemo {
 
 		singleton.setValue(222);
 
-		BasicSingleton singleton2 = readFromFile(filename);
+		StaticSingleton singleton2 = readFromFile(filename);
 
 		System.out.println(singleton == singleton2);
 
